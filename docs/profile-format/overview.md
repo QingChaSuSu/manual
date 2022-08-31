@@ -44,6 +44,8 @@ udp-policy-not-supported-behaviour = DIRECT
 # map 'abc.com' to '1.2.3.4'
 abc.com = 1.2.3.4
 
+'mtalk.google.com' to '198.18.1.20'
+
 # map any domain end with '.dev' to '6.7.8.9'
 *.dev = 6.7.8.9
 
@@ -53,10 +55,15 @@ foo.com = bar.com
 # assign '8.8.8.8' as dns server for 'bar.com'
 bar.com = server:8.8.8.8
 
+use-hosts: true
+fake-ip-filter: 
+- 'mtalk.google.com'
+
 [Proxy]
 # build in policy
 On = direct
 Off = reject
+PROCESS-NAME,com.tencent.mm
 
 # http proxy
 ProxyHTTP = http, 1.2.3.4, 443, username, password
